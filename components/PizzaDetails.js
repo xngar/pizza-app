@@ -49,7 +49,7 @@ const PizzaDetails = ({ pizza }) => {
     </div>
     <div>
       {pizza.toppings?.map((top, item) => {
-        return <div>{top.name}</div>
+        return <div key={item}>{top.name}</div>
       })}
     </div>
     <div className="w-full">
