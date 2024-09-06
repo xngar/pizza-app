@@ -45,27 +45,33 @@ const PizzaDetails = ({ pizza }) => {
 
       , {crust}
     </div>
-    <div>
-      <SizeSelection pizza={pizza} size={size} setSize={setSize} />
-    </div>
-    {/* crust selection  */}
-    <CrustSelection crust={crust} setCrust={setCrust} />
-    <div>
 
-    </div>
-    <div >
-      <div className="flex gap-4 flex-wrap justify-center">
-        {pizza.toppings?.map((top, item) => {
-          return <Topping key={item} topping={top} aditionalTopping={aditionalTopping}
-            setAdicionalTopping={setAdicionalTopping} />
-        })}
+    scroll info
+
+    <div className="overflow-scroll h-[300px]">
+
+      <div>
+        <SizeSelection pizza={pizza} size={size} setSize={setSize} />
       </div>
-    </div>
-    <div className="w-full">
-      <Button variant="default" className="w-full p-4 h-15">Agregar a la carta</Button>
+      {/* crust selection  */}
+      <CrustSelection crust={crust} setCrust={setCrust} />
+      <div>
 
+      </div>
+      <div >
+        <div className="flex gap-4 flex-wrap justify-center">
+          {pizza.toppings?.map((top, item) => {
+            return <Topping key={item} topping={top} aditionalTopping={aditionalTopping}
+              setAdicionalTopping={setAdicionalTopping} />
+          })}
+        </div>
+      </div>
+      <div className="w-full">
+        <Button variant="default" className="w-full p-4 h-15">Agregar a la carta</Button>
+
+      </div>
+      <div>Precio: {price}</div>
     </div>
-    <div>Precio: {price}</div>
 
 
   </div>;

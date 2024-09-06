@@ -38,7 +38,7 @@ const Pizza = ({ pizza }) => {
 
         <button onClick={() => setOpenDialog(true)} className="bg-slate-600 gradient text-white p-2 px-5 font-semibold rounded-lg shadow-sm text-sm hidden md:flex">Choose</button>
 
-        <button className="gradient p-2 w-full rounded-md text-sm md:hidden">
+        <button onClick={() => setOpenDialog(true)} className="bg-orange-700 p-2 w-full rounded-md text-sm md:hidden">
           Precio desde: {pizza.priceSm}
         </button>
       </div>
@@ -47,11 +47,11 @@ const Pizza = ({ pizza }) => {
 
 
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-      <DialogContent className="max-w-[700px]">
+      <DialogContent className="">
         <DialogHeader>
           <DialogTitle>{pizza.name}</DialogTitle>
           <DialogDescription>
-            <div className="w-[full]">
+            <div className="">
               <PizzaDetails pizza={pizza} />
             </div>
 
