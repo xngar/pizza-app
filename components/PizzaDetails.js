@@ -2,7 +2,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button"
 import SizeSelection from "../components/SizeSelection"
-
+import CrustSelection from "../components/CrustSelection"
+import Topping from "../components/Topping";
 
 const PizzaDetails = ({ pizza }) => {
 
@@ -36,7 +37,7 @@ const PizzaDetails = ({ pizza }) => {
 
   return <div>
     <div>
-      <Image src={pizza.image} width={350} height={350} alt={pizza.name} />
+      <Image src={pizza.image} width={250} height={250} alt={pizza.name} />
     </div>
     <div>
       {size === "small" ? "25 cms " : size === "medium" ? "30 cms " :
@@ -47,10 +48,18 @@ const PizzaDetails = ({ pizza }) => {
     <div>
       <SizeSelection pizza={pizza} size={size} setSize={setSize} />
     </div>
+    {/* crust selection  */}
+    <CrustSelection crust={crust} setCrust={setCrust} />
     <div>
-      {pizza.toppings?.map((top, item) => {
-        return <div key={item}>{top.name}</div>
-      })}
+
+    </div>
+    <div >
+      <div className="flex gap-4 flex-wrap justify-center">
+        {pizza.toppings?.map((top, item) => {
+          return <Topping key={item} topping={top} aditionalTopping={aditionalTopping}
+            setAdicionalTopping={setAdicionalTopping} />
+        })}
+      </div>
     </div>
     <div className="w-full">
       <Button variant="default" className="w-full p-4 h-15">Agregar a la carta</Button>
