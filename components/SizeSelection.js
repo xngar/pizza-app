@@ -20,6 +20,7 @@ const SizeSelection = ({ pizza, setSize, size }) => {
         <input onChange={(e) => setSize(e.target.value)} type="radio" value="large" className="appearance-none" name="size" />
         Large
       </label>
+
     </div>
   </div>;
 };

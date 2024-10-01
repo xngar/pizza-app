@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import Nav from "../components/Nav";
+
+import CartIcon from "../components/CartIcon";
 
 import "./globals.css";
 import { Quicksand, Bangers, Roboto_Condensed } from "next/font/google";
+import CartProvider from "@/context/CartContext";
+
+import CartMobile from "../components/CartMobile";
+
+import CartDesktop from "../components/CartDesktop";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -33,19 +41,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${quicksand.variable} ${bangers.variable} ${robotoCondensed.variable} `}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <CartProvider>
+      <html lang="en">
+        <body
+          className={`${quicksand.variable} ${bangers.variable} ${robotoCondensed.variable} overflow-x-hidden `}
         >
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <CartMobile />
+            <Nav />
+            <CartIcon />
+            <CartDesktop />
+
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </CartProvider>
   );
 }

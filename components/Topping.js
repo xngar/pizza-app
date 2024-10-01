@@ -16,7 +16,7 @@ const Topping = ({ topping, aditionalTopping, setAdicionalTopping }) => {
     if (isChecked) {
       const newTopping = new Set([...aditionalTopping, { ...topping }]);
       setAdicionalTopping(Array.from(newTopping));
-      console.log(aditionalTopping);
+
     }
     else {
       const newTopping = aditionalTopping.filter((toppingObj) => {
@@ -27,7 +27,7 @@ const Topping = ({ topping, aditionalTopping, setAdicionalTopping }) => {
     }
   }
 
-  console.log(aditionalTopping);
+
   useEffect(() => {
     handleTopping();
 

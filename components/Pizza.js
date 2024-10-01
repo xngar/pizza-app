@@ -20,6 +20,7 @@ const Pizza = ({ pizza }) => {
   return <div className="group  rounded-2xl mb-2 p-2">
 
 
+
     <Image className="group-hover:translate-y-[-20px] transition-all duration-200" src={pizza.image} width={200} height={200} alt={pizza.name} priority="1" />
     <div className="text-xl font-bold capitalize">
 
@@ -52,7 +53,7 @@ const Pizza = ({ pizza }) => {
           <DialogTitle>{pizza.name}</DialogTitle>
           <DialogDescription>
             <div className="">
-              <PizzaDetails pizza={pizza} />
+              <PizzaDetails pizza={pizza} setOpenDialog={setOpenDialog} />
             </div>
 
           </DialogDescription>
